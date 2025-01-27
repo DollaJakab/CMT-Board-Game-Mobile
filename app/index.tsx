@@ -1,29 +1,23 @@
-import { Text, View } from 'react-native';
+import ActionsTab from '@/components/actionsTab';
+import Board from '@/components/board';
+import { View } from 'react-native';
+import ConfettiCannon from 'react-native-confetti-cannon';
 import { useStore } from '@/lib/store';
-import { colorScheme } from 'nativewind';
+import { boardSize } from '@/lib/constants';
 
 export default function Index() {
-	colorScheme.set('system');
-	const board = useStore((state) => state.board);
+	const lines = useStore((state) => state.lines);
+	const filledCells = useStore((state) => state.filledCells);
 	return (
-		<View className="flex flex-1 items-center justify-center bg-background">
-			<View className="flex flex-col gap-3">
-				{board.map((row, i) => (
-					<View
-						key={i}
-						className="flex flex-row gap-3"
-					>
-						{row.map((cell, j) => (
-							<View
-								key={j}
-								className="bg-text w-10 h-10 flex gap-3 justify-center items-center"
-							>
-								<Text>{cell.value}</Text>
-							</View>
-						))}
-					</View>
-				))}
-			</View>
+		<View className="flex flex-1 items-center justify-evenly bg-background w-full h-full">
+			<Board />
+			<ActionsTab />
+			{lines > 0 && filledCells === boardSize && (
+				<ConfettiCannon
+					count={200}
+					origin={{ x: 0, y: 0 }}
+				/>
+			)}
 		</View>
 	);
 }

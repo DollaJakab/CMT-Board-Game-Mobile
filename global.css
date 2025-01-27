@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 :root {
-	--bg: #dddddd;
-	--text: #1b1b1b;
+	--bg: #cfe7e5;
+	--primary: #ffffff;
+	--secondary: #181818;
+	--tertiary: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg: #1b1b1b;
-		--text: #dddddd;
+		--bg: #233137;
+		--primary: #dddddd;
+		--secondary: #1b1b1b;
+		--tertiary: #ffffff;
 	}
 }
