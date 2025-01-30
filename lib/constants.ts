@@ -1,3 +1,3 @@
-export const boardRows = 3;
-export const boardCols = 3;
+export const boardRows = 5;
+export const boardCols = 5;
 export const boardSize = boardRows * boardCols;
