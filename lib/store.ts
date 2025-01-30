@@ -50,6 +50,7 @@ export const useStore = create<Store>((set) => ({
 			});
 			//Update the filled cells
 			newState.filledCells = newState.filledCells + 1;
+
 			return newState;
 		});
 	},
